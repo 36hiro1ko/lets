@@ -1,0 +1,286 @@
+<div id="color" class="container1">
+
+	<!-- Three columns of text below the carousel -->
+	<div class="container">
+		<div class="row">
+			<%= link_to image_tag("logo.png", alt: "logo"), 'http://rubyonrails.org/' %>
+			<h1>What's 「Let's<span class="flaticon-heart233"></span> Ask Phrase」 ?</h2>
+			<div class="col-lg-4">
+				<div class="logo">
+					<h1><span class="flaticon-user87"></span></h1>
+				</div>
+
+				<h2>Make frends</h2>
+				<p>
+					Duis mollis, est non commodo luctus, nisi erat porttitor
+					ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus
+					sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris condimentum nibh.
+				</p>
+			</div><!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<div class="logo">
+					<h1><span class="flaticon-people5"></span></h1>
+				</div>
+				<h2>Heading</h2>
+				<p>
+					Duis mollis, est non commodo luctus, nisi erat porttitor
+					ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus
+					sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris condimentum nibh.
+				</p>
+			</div><!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<div class="logo">
+					<h1><span class="flaticon-social100"></span></h1>
+				</div>
+				<h2>Heading</h2>
+				<p>
+					Duis mollis, est non commodo luctus, nisi erat porttitor
+					ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus
+					sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor
+					mauris condimentum nibh.
+				</p>
+			</div><!-- /.col-lg-4 -->
+		</div><!-- /.row -->
+	</div>
+</div>
+
+<!-- START THE FEATURETTES -->
+
+<hr class="featurette-divider">
+
+<!--<div class="row featurette"> -->
+<div class="row featurette-7">
+	<div class="col-md-6">
+		<h2 class="featurette-heading">web fonts<span class="text-muted">It'll blow your mind.</span></h2>
+		<p class="lead">
+
+		</p>
+	</div>
+	<div class="col-md-6">
+		<div class="row">
+			<div id="loginbox" style="margin-top:20px;" class="col-md-6 col-md-offset-3">
+				<div class="panel panel-info" >
+					<div class="panel-heading">
+						<div class="panel-title">
+							Sign in
+						</div>
+					</div>
+
+					<div style="padding-top:30px" class="panel-body" >
+						<%= form_for(:session, url: sessions_path) do |f| %>
+
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+							<%= f.text_field :email, placeholder: "email", class: "form-control" %>
+						</div>
+
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-lock"></i></span>
+							<%= f.password_field :password, placeholder: "password", class: "form-control"  %>
+						</div>
+						<div class="col-sm-12 controls">
+							<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+							<% end %>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12 control">
+								<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+									<p>
+										Don't have an account!<%= link_to "Sign up now!", signup_path %>
+									</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+
+	<div class="container">
+		<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info" >
+				<div class="panel-heading">
+					<div class="panel-title">
+						Sign In
+					</div>
+					<div style="float:right; font-size: 80%; position: relative; top:-10px">
+						<a href="#">Forgot password?</a>
+					</div>
+				</div>
+
+				<div style="padding-top:30px" class="panel-body" >
+
+					<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+					<form id="loginform" class="form-horizontal" role="form">
+
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
+						</div>
+
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+							<input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+						</div>
+
+						<div class="input-group">
+							<div class="checkbox">
+								<label>
+									<input id="login-remember" type="checkbox" name="remember" value="1">
+									Remember me </label>
+							</div>
+						</div>
+
+						<div style="margin-top:10px" class="form-group">
+							<!-- Button -->
+
+							<div class="col-sm-12 controls">
+								<a id="btn-login" href="#" class="btn btn-success">Login </a>
+								<a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
+
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="col-md-12 control">
+								<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+									Don't have an account!
+									<a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()"> Sign Up Here </a>
+								</div>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+		<div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">
+						Sign Up
+					</div>
+					<div style="float:right; font-size: 85%; position: relative; top:-10px">
+						<a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a>
+					</div>
+				</div>
+				<div class="panel-body" >
+					<form id="signupform" class="form-horizontal" role="form">
+
+						<div id="signupalert" style="display:none" class="alert alert-danger">
+							<p>
+								Error:
+							</p>
+							<span></span>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="col-md-3 control-label">Email</label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" name="email" placeholder="Email Address">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="firstname" class="col-md-3 control-label">First Name</label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" name="firstname" placeholder="First Name">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="lastname" class="col-md-3 control-label">Last Name</label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" name="lastname" placeholder="Last Name">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password" class="col-md-3 control-label">Password</label>
+							<div class="col-md-9">
+								<input type="password" class="form-control" name="passwd" placeholder="Password">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="icode" class="col-md-3 control-label">Invitation Code</label>
+							<div class="col-md-9">
+								<input type="text" class="form-control" name="icode" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<!-- Button -->
+							<div class="col-md-offset-3 col-md-9">
+								<button id="btn-signup" type="button" class="btn btn-info">
+									<i class="icon-hand-right"></i> &nbsp Sign Up
+								</button>
+								<span style="margin-left:8px;">or</span>
+							</div>
+						</div>
+
+						<div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+
+							<div class="col-md-offset-3 col-md-9">
+								<button id="btn-fbsignup" type="button" class="btn btn-primary">
+									<i class="icon-facebook"></i> Sign Up with Facebook
+								</button>
+							</div>
+
+						</div>
+
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+	<div class="col-md-7">
+		<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+		<p class="lead">
+			Donec ullamcorper nulla non metus auctor
+			fringilla. Vestibulum id ligula porta felis euismod semper. Praesent
+			commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+			tellus ac cursus commodo.
+		</p>
+	</div>
+	<div class="col-md-5">
+		<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI1MCIgeT0iMjUwIiBzdHlsZT0iZmlsbDojYWFhO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1zaXplOjMxcHg7Zm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NTAweDUwMDwvdGV4dD48L3N2Zz4=" class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500">
+	</div>
+</div>
+
+<hr class="featurette-divider">
+
+</div>
+
+
+
+<hr class="featurette-divider">
+<!-- /END THE FEATURETTES -->
+
+<!-- FOOTER -->
+<footer>
+	<p class="pull-right">
+		<a href="#">Back to top</a>
+	</p>
+	<p>
+		© 2014 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a>
+	</p>
+</footer>
+

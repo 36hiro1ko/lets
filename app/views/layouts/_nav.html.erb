@@ -1,0 +1,28 @@
+<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Sign in<b class="caret"></b></a>
+<ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+	
+	<li>
+		<div class="row">
+			<div class="col-md-12">
+				<%= form_for(:session, url: sessions_path) do |f| %>
+				<!-- <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav"> -->
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail2">Email address</label>
+						<!-- <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required> -->
+						<%= f.text_field :email, placeholder: "email", class: "form-control",required: "required" %>
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputPassword2">Password</label>
+						<!-- <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required> -->
+						<%= f.password_field :password, placeholder: "password", class: "form-control", required: "required" %>
+					</div>
+					<div class="form-group">
+
+						<%= f.submit "Sign in", class: "btn btn-success btn-block" %>
+					</div>
+				<!-- </form> -->
+				<% end %>
+			</div>
+		</div>
+	</li>
+</ul>

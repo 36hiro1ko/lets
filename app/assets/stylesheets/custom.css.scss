@@ -1,0 +1,272 @@
+@import "bootstrap";
+@import "bootstrap10338";
+@import "flaticon";
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+
+body {
+  padding-top: 50px;
+}
+
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+
+.jumbotron {
+   background-image: url(bg05_02.gif);
+  //background-size: cover;
+  //background-repeat: no-repeat;
+  #font.brown{
+  //font-family: 'Anton', sans-serif;
+  text-shadow:
+  5px 5px 5px #939393,
+  5px 5px 0px #1c1c1c; 
+  color: #3A2A22;
+ }
+}
+
+
+
+/*  logo
+/<em>--------------------------------- */
+.logo{
+    text-align: center;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+}
+ 
+.logo h1 { /* 丸とフォントのスタイリング */
+    margin: 0;
+    padding-top: 25px;
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 60px;
+    color: #7E7E7E;
+    background-color: #EEEEEE;
+}
+/* <em>--------------------------------- */ 
+
+
+
+
+
+
+/* typography */
+
+/*
+@font-face {
+    font-family: 'フォント名';
+    src: url('フォント名.eot');
+    src: url('フォント名.eot?iefix') format('eot'),
+         url('フォント名.woff') format('woff'),
+         url('フォント名.ttf') format('truetype'),
+         url('フォント名.svg#webfontjSpbZQRv') format('svg');
+}
+*/
+
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #7E7E7E;
+}
+
+h2.sample{
+　　color: #999;
+  }
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+
+
+.navbar-form {
+  padding-right: 30px;
+}
+
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  //border-top: 1px solid #eaeaea;
+  color: #999;
+  //background-color: #D9EDF7;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+/* miscellaneous */
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* sidebar */
+
+aside {
+  padding-top: 10px;
+  section {
+    padding: 10px 0;
+    border-top: 1px solid;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+/* custom */
+.hide-bullets {
+list-style:none;
+margin-left: -40px;
+margin-top:20px;
+}
+
+
+
+h3.footer-title{
+  font-family: 'Alex Brush', cursive;
+}
+
+/* bakground-oolor */
+#color.container1{
+     // background-image: url(bg05_02.gif);
+     color: #7E7E7E;
+     font-size: 20px;
+}
+
+/* top icon earth53 */
+#color.earth{
+     // background-image: url(bg05_02.gif);
+     color: #A0C2B8;
+     font-size: 70px;
+     //text-align: center;
+}
+#color.brown{
+   color: #3A2A22;
+   font-size: 70px;
+}
+
+
+
+
+
+
+
+
