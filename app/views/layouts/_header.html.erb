@@ -12,27 +12,15 @@
 				<a class="navbar-brand" href="<%= about_path %>" ><i class="fa fa-info-circle"></i> about</a>
 			</li>
 			<% if signed_in? %>
-			
-			<li id="fat-menu" class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account <b class="caret"></b> </a>
-				<ul class="dropdown-menu">
-					<li>
-						<%= link_to "Profile", current_user %>
-					</li>
-					<li>
-						<%= link_to "Settings", '#' %>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<%= link_to "Sign out", signout_path, method: "delete" %>
-					</li>
-				</ul>
-			</li>
-			<% else %>
 
+			<%= render 'users/nav_logout' %>
+
+			<% else %>
+            <!-- 
 			<li>
 				<a class="navbar-brand" href="<%= signin_path %>" ><span class="glyphicon glyphicon-user"></span> sign in</a>
 			</li>
+			-->
 			<% end %>
 		</ul>
 
