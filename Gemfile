@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2'
 #gem 'jquery-turbolinks'
+gem "font-awesome-rails"
 
 
 
