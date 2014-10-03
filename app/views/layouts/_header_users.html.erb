@@ -1,13 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="<%= home_path %>" >Let's<i class="fa fa-heart"></i> Ask Phrase</a>
+
 		</div>
 
 		<ul class="nav navbar-nav navbar-right">
-
-			<% if signed_in? %>
-
 			<li>
 				<a class="navbar-brand" href="<%= allusers_path %>" ><span class="glyphicon glyphicon-user"></span> All users</a>
 			</li>
@@ -22,24 +19,8 @@
 			<li>
 				<%= link_to "Sign out", signout_path, method: "delete" %>
 			</li>
-
-			<% else %>
-			<!--
-			<li>
-			<a class="navbar-brand" href="<%= signin_path %>" ><span class="glyphicon glyphicon-user"></span> sign in</a>
-			</li>
-			-->
-
-			<li>
-				<a class="navbar-brand" href="<%= home_path %>" ><i class="fa fa-home"></i> Home</a>
-			</li>
-			<li>
-				<a class="navbar-brand" href="<%= about_path %>" ><i class="fa fa-info-circle"></i> about</a>
-			</li>
-			<% end %>
 		</ul>
 
 	</div>
 
 </header>
-

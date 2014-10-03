@@ -1,14 +1,24 @@
 class UsersController < ApplicationController
+  
+  #layout 'users_layout'
 
   before_action :signed_in_user, only: [:index, :show, :edit, :update]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
+  
   def index
     @users = User.paginate(page: params[:page])
+     #render :layout => 'users_layout'
+  end
+  
+  def allusers
+     @users = User.paginate(page: params[:page])
+     #render :layout => 'users_layout'
   end
 
   def new
     @user = User.new
+    #render :layout => 'application'
 
   end
 
