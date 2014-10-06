@@ -10,7 +10,7 @@ html {
 
 
 body {
-  padding-top: 50px;
+  padding-top: 70px;
 }
 
 
@@ -262,7 +262,11 @@ h3.footer-title{
    color: #3A2A22;
    font-size: 70px;
 }
-
+/* ------------------------navbar ----------------------------------*/
+/* ================================================================================== */
+.navbar-nav{
+  margin-left: 3px;
+}
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {

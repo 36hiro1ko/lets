@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
   
-  #layout 'users_layout'
+  layout 'users_layout'
 
   before_action :signed_in_user, only: [:index, :show, :edit, :update]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
+
   
   def index
     @users = User.paginate(page: params[:page])
+    @micropost = current_user.microposts.build if signed_in?
      #render :layout => 'users_layout'
   end
   
@@ -24,6 +26,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def create
@@ -66,12 +69,14 @@ class UsersController < ApplicationController
 
   # Before actions
 
+=begin
   def signed_in_user
     unless signed_in?
       store_location
       redirect_to signin_url, notice: "Please sign in."
     end
   end
+=end
 
   def correct_user
     @user = User.find(params[:id])

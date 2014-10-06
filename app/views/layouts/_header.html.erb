@@ -1,45 +1,38 @@
-<header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+<header class="navbar navbar-fixed-top navbar-inverse">
 	<div class="container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="<%= home_path %>" >Let's<i class="fa fa-heart"></i> Ask Phrase</a>
+			<!--トグルボタンの設置 幅が狭くなったときに表示するボタン-->
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-content">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
 		</div>
 
-		<ul class="nav navbar-nav navbar-right">
+		<div id="nav-content" class="collapse navbar-collapse">
+			<div class="nav navbar-nav navbar-right">
+				<!--リンクのリスト メニューリスト-->
+				<ul class="nav navbar-nav">
 
-			<% if signed_in? %>
-
-			<li>
-				<a class="navbar-brand" href="<%= allusers_path %>" ><span class="glyphicon glyphicon-user"></span> All users</a>
-			</li>
-			<li>
-				<a><%= current_user.name %></a>
-
-			</li>
-			<li>
-				<%= gravatar_for current_user %>
-			</li>
-
-			<li>
-				<%= link_to "Sign out", signout_path, method: "delete" %>
-			</li>
-
-			<% else %>
-			<!--
-			<li>
-			<a class="navbar-brand" href="<%= signin_path %>" ><span class="glyphicon glyphicon-user"></span> sign in</a>
-			</li>
-			-->
-
-			<li>
-				<a class="navbar-brand" href="<%= home_path %>" ><i class="fa fa-home"></i> Home</a>
-			</li>
-			<li>
-				<a class="navbar-brand" href="<%= about_path %>" ><i class="fa fa-info-circle"></i> about</a>
-			</li>
-			<% end %>
-		</ul>
-
+					<% if signed_in? %>
+					<li>
+						<a class="navbar-brand" href="<%= allusers_path %>" ><span class="glyphicon glyphicon-user"></span> All users</a>
+					</li>
+					<li>
+						<%= link_to "Sign out", signout_path, method: "delete", class: "navbar-brand" %>
+					</li>
+					<% else %>
+					<li>
+						<a class="navbar-brand" href="<%= home_path %>" ><i class="fa fa-home"></i> Home</a>
+					</li>
+					<li>
+						<a class="navbar-brand" href="<%= about_path %>" ><i class="fa fa-info-circle"></i> about</a>
+					</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
 	</div>
-
 </header>
 
