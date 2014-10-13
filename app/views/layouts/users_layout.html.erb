@@ -9,20 +9,18 @@
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/shim' %>
 	</head>
-	<body>
+	<body style="padding-top:50px;">
+
 		<%= render 'layouts/header' %>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<%= render 'layouts/sidber' %>
-				</div>
-				<div class="col-lg-9">
-					<%= yield %>
-				</div>
-			</div>
-		</div>
+		<!-- Sidebar -->
+		<%= render 'layouts/sidber' %>
+
+		<!-- /#sidebar-wrapper -->
+
+				<%= yield %>
 
 		<%= render 'layouts/footer' %>
+
 	</body>
 </html>

@@ -1,16 +1,19 @@
 class UsersController < ApplicationController
   
-  layout 'users_layout'
-
+  #layout 'users_layout'
+  
   before_action :signed_in_user, only: [:index, :show, :edit, :update]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
-
+  
+  layout :layout_by_current_user
+  
   
   def index
     @users = User.paginate(page: params[:page])
     @micropost = current_user.microposts.build if signed_in?
-     #render :layout => 'users_layout'
+    @feed_items = current_user.feed.paginate(page: params[:page]) if signed_in?
+     render :layout => 'users_layout'
   end
   
   def allusers
@@ -20,7 +23,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    #render :layout => 'application'
+    render :layout => 'application'
 
   end
 

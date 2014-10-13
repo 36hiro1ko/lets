@@ -1,43 +1,31 @@
 <% provide(:title, 'user page') %>
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-lg-12">
 
-<div class="panel panel-info">
-	<div class="panel-heading">
-		<h3 class="panel-title">Welcome <%= current_user.name %></h3>
-	</div>
-	<div class="panel-body">
-		<div class="row">
-			<div class="col-md-3 col-lg-3 " align="center">
-				<%= gravatar_for current_user %>
-			</div>
-
-			<div class=" col-md-9 col-lg-9 ">
-				<table class="table table-user-information">
-					<tbody>
-						<tr>
-							<td>NAME</td>
-							<td><%= current_user.name %></td>
-							<td><%= current_user.email %></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+			<!--<h1 class="page-header">My Page</h1> -->
+			<h1><i class="fa fa-user"></i> My Page</h1>
+			<legend></legend>
 		</div>
 	</div>
-      <div class="span8">
-      	<section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
-       
-	　</div>
-	
-		
-	</div>
 
-	<div class="panel-footer">
-		
-	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-4">
+				<%= gravatar_for current_user, size: 65 %>
+				<h1><%= current_user.name %></h1>
 
-</div>
+				<span> <%= link_to "view my profile", current_user %> </span>
+				<span> <%= pluralize(current_user.microposts.count, "micropost") %> </span>
+				<legend></legend>
+				<%= render 'shared/micropost_form' %>
+			</div>
+			<div class="col-lg-8 col-md-8">
+			
+					<h3>Micropost Feed</h3>
+					<%= render 'shared/feed' %>
+		
+			</div>
+
+		</div>
+	</div>

@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  layout :layout_by_current_user
+  
+  
   def new
   end
 

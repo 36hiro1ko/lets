@@ -1,4 +1,14 @@
 module SessionsHelper
+  
+  #ログイン中とそうでない場合とでlayoutを振り分ける  
+  def layout_by_current_user
+    if signed_in?
+      "users_layout"
+    else
+      "application"
+    end       
+  end
+    
   def sign_in(user)
     remember_token = User.new_remember_token
     cookies.permanent[:remember_token] = remember_token

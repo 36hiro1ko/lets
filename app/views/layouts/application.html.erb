@@ -9,10 +9,12 @@
 		<%= csrf_meta_tags %>
 		<%= render 'layouts/shim' %>
 	</head>
-	<body>
+	<body style="padding-top:50px;">
 
 		<%= render 'layouts/header' %>
-        <%= yield %>				
+
+		<%= yield %>
+					
         <%= render 'layouts/footer' %>
 	</body>
 </html>
