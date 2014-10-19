@@ -1,0 +1,8 @@
+<li>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(message.created_at) %> ago.
+    送信先：<%= message.destination %><br>
+    送信内容<%= message.message%><br>
+    送信日時<%= message.created_at%>
+  </span>
+</li>

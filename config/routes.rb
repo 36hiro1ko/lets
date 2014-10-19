@@ -3,6 +3,7 @@ Lets::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :message, only: [:index, :create]
 
 
   root  'static_pages#home'
@@ -19,6 +20,8 @@ Lets::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   
   match '/allusers', to: 'users#allusers', via: 'get'
+  match '/send_message', to: 'messages#send_message', via: 'get'
+  match '/message_box', to: 'users#message_box', via: 'get'
 
 
 end

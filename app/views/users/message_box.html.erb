@@ -1,0 +1,9 @@
+<h1><i class="fa fa-envelope"></i> <%= current_user.name %>'s Message Box</h1>
+<legend></legend>
+
+
+    <% if @messages.any? %>
+    メール送信総数：<%= current_user.messages.count %>
+    送信メール一覧<%= render @messages %>
+        <!-- <%= @messages.inspect %> -->    
+    <% end %>
