@@ -1,9 +1,38 @@
 <h1><i class="fa fa-envelope"></i> <%= current_user.name %>'s Message Box</h1>
+
 <legend></legend>
+<h1>送信メール一覧</h1>
+send_messages(送ったメール):<%= @send_messages.inspect %><br>
+<% if @send_messages.any? %>
+<% @send_messages.each do |msg| %>
+<li>送信日時:<%= msg.created_at %></li>
+<li>message内容：<%= msg.message %></li>
+<li>送り先id:<%= msg.destination %></li>
+
+<li><%= gravatar_for User.find_by(id: msg.destination), size: 30 %>送り先<%= User.find_by(id: msg.destination).name %></li>
+<% end %>
+<% else %>
+Not send messages.
+<% end %> 
+
+<legend></legend>
+<h1>受信メッセージ一覧</h1>
+received_messages(受信したメール)<%= @received_messages.inspect %><br>
+<% if @received_messages.any? %>
+<% @received_messages.each do |msg| %>
+<li>受信日時:<%= msg.created_at %></li>
+<li>message内容：<%= msg.message %></li>
+<li>だれから？:<%= msg.user_id %></li>
+<li>from:<%= msg.user.name %> </li>
+<%= gravatar_for User.find_by(id: msg.user_id), size: 30 %>
+<% end %>
+<% else %>
+Not received messages.
+<% end %>
 
 
-    <% if @messages.any? %>
-    メール送信総数：<%= current_user.messages.count %>
-    送信メール一覧<%= render @messages %>
-        <!-- <%= @messages.inspect %> -->    
-    <% end %>
+
+
+
+ 
+

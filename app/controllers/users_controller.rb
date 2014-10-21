@@ -33,7 +33,11 @@ class UsersController < ApplicationController
   end
   
   def message_box
-    @messages = current_user.messages if signed_in?
+    #受信メッセージ
+    @received_messages=Message.where("destination = ?",current_user.id) if signed_in?
+    #送信メッセージ
+    @send_messages=Message.where("user_id = ?",current_user.id) if signed_in?
+    #@messages = current_user.messages if signed_in?
   end
 
   def create

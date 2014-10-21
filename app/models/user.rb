@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :microposts, dependent: :destroy
   has_many :messages
+  #has_many :messages,foreign_key: "user_id",dependent: :destroy
+  #has_many :destination, through: :messages, sorce: :destination
+  
   
   before_save { self.email = email.downcase }
   before_create :create_remember_token
@@ -25,6 +28,11 @@ class User < ActiveRecord::Base
     # このコードは準備段階です。
     # 完全な実装は【11】「ユーザーをフォローする」を参照してください。
     Micropost.where("user_id = ?", id)
+  end
+  
+  def received_message(id)
+    # 受信したメールを検索
+    Message.find_by("destination = ?", id)
   end
 
   private
