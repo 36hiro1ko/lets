@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   
   def allusers
      @users = User.paginate(page: params[:page])
-     #render :layout => 'users_layout'
+     render :layout => 'users_layout'
   end
 
   def new
@@ -34,9 +34,14 @@ class UsersController < ApplicationController
   
   def message_box
     #受信メッセージ
-    @received_messages=Message.where("destination = ?",current_user.id) if signed_in?
+    #@received_messages=Message.where("destination = ?",current_user.id) if signed_in?
+    #@received_messages = Message.where("post_to_id = ?",current_user.id).preload(:post_to_id) if signed_in?
     #送信メッセージ
-    @send_messages=Message.where("user_id = ?",current_user.id) if signed_in?
+    #@send_messages = Message.where("user_id=?",current_user.id).preload(:destination) if signed_in?
+    @messages = Message.where("user_id=?",current_user.id).preload(:post_to_id)
+    #@messages = Message.where("user_id=?",current_user.id).preload(:post_to_id)
+  
+    #@send_messages=Message.where("user_id = ?",current_user.id) if signed_in?
     #@messages = current_user.messages if signed_in?
   end
 

@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :microposts, dependent: :destroy
   has_many :messages
-  #has_many :messages,foreign_key: "user_id",dependent: :destroy
+
+  #has_many :messages,foreign_key: "destination",dependent: :destroy
   #has_many :destination, through: :messages, sorce: :destination
   
   

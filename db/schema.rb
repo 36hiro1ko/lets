@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019100547) do
+ActiveRecord::Schema.define(version: 20141024115416) do
 
   create_table "messages", force: true do |t|
     t.string   "message"
     t.integer  "user_id"
-    t.integer  "read_flg",    default: 0
+    t.integer  "read_flg",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "destination"
+    t.integer  "post_to_id"
   end
 
   add_index "messages", ["user_id", "created_at"], name: "index_messages_on_user_id_and_created_at"
@@ -32,6 +32,24 @@ ActiveRecord::Schema.define(version: 20141019100547) do
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+
+  create_table "receive_messages", force: true do |t|
+    t.integer  "user_id"
+    t.string   "message"
+    t.integer  "destination_id"
+    t.integer  "read_flg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "send_messages", force: true do |t|
+    t.integer  "user_id"
+    t.string   "message"
+    t.integer  "destination_id"
+    t.integer  "read_flg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
