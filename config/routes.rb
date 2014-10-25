@@ -21,6 +21,7 @@ Lets::Application.routes.draw do
   
   match '/allusers', to: 'users#allusers', via: 'get'
   match '/send_message', to: 'messages#send_message', via: 'get'
+
   match '/message_box', to: 'users#message_box', via: 'get'
 
 

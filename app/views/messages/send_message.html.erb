@@ -1,0 +1,8 @@
+<h1>Message Box</h1>
+<legend></legend>
+
+<% @messages.each do |msg| %>
+  <li>送信日時:<%= msg.created_at %></li>
+  <li>message内容：<%= msg.message %></li>
+
+<% end %>
