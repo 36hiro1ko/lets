@@ -1,6 +1,21 @@
 class User < ActiveRecord::Base
   has_many :microposts, dependent: :destroy
-  has_many :messages
+  #has_many :messages
+  # ------ message ------ 
+  has_many :messages, foreign_key: "user_id", dependent: :destroy
+  has_many :post_to_users, through: :messages, source: :post_to
+  has_many :reverse_messages, foreign_key: "post_to_id",
+                                   class_name:  "Message",
+                                   dependent:   :destroy
+  has_many :users, through: :reverse_messages, source: :user
+   # ------ end of message ------ 
+  
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id",
+                                   class_name:  "Relationship",
+                                   dependent:   :destroy
+  has_many :followers, through: :reverse_relationships
 
   #has_many :messages,foreign_key: "destination",dependent: :destroy
   #has_many :destination, through: :messages, sorce: :destination
@@ -29,6 +44,18 @@ class User < ActiveRecord::Base
     # このコードは準備段階です。
     # 完全な実装は【11】「ユーザーをフォローする」を参照してください。
     Micropost.where("user_id = ?", id)
+  end
+  
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+  
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id).destroy
   end
   
   def received_message(id)

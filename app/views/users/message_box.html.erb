@@ -7,11 +7,10 @@
   <li>送信日時:<%= msg.created_at %></li>
   <li>message内容：<%= msg.message %></li>
   <li>送り先id:<%= msg.post_to_id %></li>
+  <li>送り先ユーザー名:<%= msg.post_to.name %></li>
 <% end %>
-<%= User.inspect %>
 
-
-
+<legend></legend>
 
 
 
