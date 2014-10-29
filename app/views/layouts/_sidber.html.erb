@@ -7,7 +7,10 @@
 				<a href="<%= root_path %>"><i class="glyphicon glyphicon-home"></i> Home</a>
 			</li>
 			<li>
-				<a href="<%= message_box_path %>"><i class="fa fa-envelope"></i> Message Box</a>
+				<a href="<%= received_messages_path %>">
+					<i class="fa fa-envelope"></i> Message Box
+					<% if unread(current_user) != 0 then %><span class="badge"><%= unread(current_user) %></span><% end %>
+				</a>
 			</li>
 			<li>
 				<a href="<%= allusers_path %>"><i class="fa fa-users"></i> Users All</a>

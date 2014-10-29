@@ -9,5 +9,10 @@ module ApplicationHelper
     end
   end
   
+ def unread(current_user)
+   @unread = Message.where("post_to_id = ?",current_user.id) if signed_in?
+   unread=@unread.where(read_flg: 0).count
+ end
+  
   
 end

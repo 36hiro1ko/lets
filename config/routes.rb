@@ -5,7 +5,8 @@ Lets::Application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
-  resources :message, only: [:index, :create]
+  #resources :messages, only: [:create,:destroy,:message_show]
+  resources :messages
 
 
   root  'static_pages#home'
@@ -22,9 +23,14 @@ Lets::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   
   match '/allusers', to: 'users#allusers', via: 'get'
-  match '/send_message', to: 'messages#send_message', via: 'get'
+  match '/received_messages', to: 'users#received_messages', via: 'get'
+  match '/sent_messages', to: 'users#sent_messages', via: 'get'
+  match '/message_show', to: 'messages#message_show', via: 'get'
+  #match '/received_message_detail', to: 'messages#received_message_detail', via: 'get'
 
-  match '/message_box', to: 'users#message_box', via: 'get'
+  #match '/received_message_detail/:id', to: 'messages#received_message_detail', via: 'get'
+ get '/received_message_detail/:id',to: 'messages#received_message_detail',as: 'received_message_detail'
+
 
 
 end

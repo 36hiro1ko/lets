@@ -1,9 +1,4 @@
 class Message < ActiveRecord::Base
-  #belongs_to :users
-  #belongs_to :user_id, class_name: "User",foreign_key: "user_id"
-  #belongs_to :destination, class_name: "User",foreign_key: "destination"
-  
-  #belongs_to :users
 
   belongs_to :user, class_name: "User"
   belongs_to :post_to, class_name: "User"

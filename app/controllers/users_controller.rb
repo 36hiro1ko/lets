@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   #layout 'users_layout'
   
-  before_action :signed_in_user, only: [:index, :show, :edit, :update,:message_box ]
+  before_action :signed_in_user, only: [:index, :show, :edit, :update,:sent_messages, :received_messages ]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
   
@@ -32,17 +32,17 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.paginate(page: params[:page])
   end
   
-  def message_box
-    #受信メッセージ
-    #@received_messages=Message.where("destination = ?",current_user.id) if signed_in?
-    #@received_messages = Message.where("post_to_id = ?",current_user.id).preload(:post_to_id) if signed_in?
-    #送信メッセージ
-    #@send_messages = Message.where("user_id=?",current_user.id).preload(:destination) if signed_in?
-    
-    @messages = Message.where("user_id=?",current_user.id).preload(:post_to)
-  
-    #@send_messages=Message.where("user_id = ?",current_user.id) if signed_in?
+  def sent_messages
+    #送信メッセージ  
+    @send_messages = Message.where("user_id=?",current_user.id).preload(:post_to).paginate(page: params[:page]) if signed_in?
+   
     #User.find_by(id: msg.post_to_id).name
+  end
+  
+  def received_messages
+       #受信メッセージ
+    @received_messages = Message.where("post_to_id = ?",current_user.id).preload(:post_to).paginate(page: params[:page]) if signed_in?
+    #@read=@received_messages.where(read_flg: 0).count
   end
 
   def create

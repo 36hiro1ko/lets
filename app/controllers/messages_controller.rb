@@ -1,17 +1,25 @@
 class MessagesController < ApplicationController
-  
-  #メッセージ一覧
-  def index
-   
+  #メッセージ詳細
+  def message_show
+    @message = Message.find(params[:id])
   end
   
-  #メッセージを送る
-  def send_message
-    #@messages = Message.where("user_id=?",current_user.id).preload(:post_to_id)  
-    @messages = current_user.messages if signed_in? 
-  end
   
   def create
     
   end
+  
+  #送信メッセージ詳細
+  def show
+    @message = Message.find(params[:id]) 
+    
+  end
+  
+  #受信メッセージ詳細
+  def received_message_detail
+    @message = Message.find(params[:id]) 
+    @message.update(read_flg: 1) #0:未読, 1:既読 
+  end
+
+  
 end
