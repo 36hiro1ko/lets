@@ -37,7 +37,7 @@
 						<tbody>
 							<% if @received_messages.any? %>
 							<% @received_messages.each do |msg| %>							
-							<tr>
+							<tr data-href="<%= received_message_detail_path(msg.id) %>">
 								<td> <% if msg.read_flg==0 then %> <span class="badge">new</span> <% end %> </td>
 								<td><a href="<%= received_message_detail_path(msg.id) %>"><i class="fa fa-search"></i></a><td>
 								<td><%= gravatar_for msg.post_to, size: 30 %><%= msg.user.name %></td>

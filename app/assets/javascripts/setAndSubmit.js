@@ -1,12 +1,11 @@
-jQuery(function($) {
-
-  //data-hrefの属性を持つtrを選択しclassにclickableを付加
-  $('tr[data-href]').addClass('clickable')
-
-    //クリックイベント
-    .click(function(e) {
-    	alert("a");
-
-    
-  });
+jQuery( function($) {
+    $('tbody tr[data-href]').addClass('clickable').click( function() {
+        window.location = $(this).attr('data-href');
+    }).find('a').hover( function() {
+        $(this).parents('tr').unbind('click');
+    }, function() {
+        $(this).parents('tr').click( function() {
+            window.location = $(this).attr('data-href');
+        });
+    });
 });

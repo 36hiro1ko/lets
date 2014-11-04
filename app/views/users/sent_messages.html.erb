@@ -33,8 +33,8 @@
 						<tbody>
 							<% if @send_messages.any? %>
 							<% @send_messages.each do |msg| %>
-							<tr>
-								<td>  </td>
+							<tr data-href="<%= message_path(msg.id) %>">
+								<td></td>
 								<td><a href="<%= message_path(msg.id) %>"><i class="fa fa-search"></i></a><td>
 								<td><%= gravatar_for msg.post_to, size: 30 %><%= msg.post_to.name %></td>
 								<td><span class="badge"><%= msg.created_at %></span></td>
