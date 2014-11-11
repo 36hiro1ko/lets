@@ -43,6 +43,16 @@ class UsersController < ApplicationController
        #受信メッセージ
     @received_messages = Message.where("post_to_id = ?",current_user.id).preload(:post_to).paginate(page: params[:page]) if signed_in?
     #@read=@received_messages.where(read_flg: 0).count
+    
+    
+  
+=begin  
+    respond_to do |format|
+    format.html
+    end
+=end
+        
+
   end
 
   def create

@@ -26,10 +26,11 @@ Lets::Application.routes.draw do
   match '/received_messages', to: 'users#received_messages', via: 'get'
   match '/sent_messages', to: 'users#sent_messages', via: 'get'
   match '/message_show', to: 'messages#message_show', via: 'get'
-  #match '/received_message_detail', to: 'messages#received_message_detail', via: 'get'
+  
+  match '/received_message_detail', to: 'messages#received_message_detail', via: 'get'
 
-  #match '/received_message_detail/:id', to: 'messages#received_message_detail', via: 'get'
- get '/received_message_detail/:id',to: 'messages#received_message_detail',as: 'received_message_detail'
+
+ #get '/received_message_detail/:id',to: 'messages#received_message_detail',as: 'received_message_detail'
 
 
 

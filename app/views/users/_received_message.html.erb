@@ -1,0 +1,7 @@
+<tr id="<%= received_message.id %>" data-toggle="modal">
+	<td> <% if received_message.read_flg==0 then %> <span class="badge">new</span></td><% end %> 
+	<td><a href="<%= received_message_detail_path(received_message.id) %>"><i class="fa fa-search"></i></a></td>
+	<td><%= gravatar_for received_message.post_to, size: 30 %><%= received_message.user.name %></td>
+	<td><span class="badge"><%= received_message.created_at %></span></td>
+</tr>
+

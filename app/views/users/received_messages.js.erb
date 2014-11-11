@@ -1,0 +1,11 @@
+$(document).ready(function() {
+              
+    $('table tr').click(function() {
+        //alert("test");
+        var data = $.getJSON("/received_message_detail", function(data){
+        	$('#result').html(data.id); 
+        	//console.dir(data);
+        });
+        
+    }); 
+});
