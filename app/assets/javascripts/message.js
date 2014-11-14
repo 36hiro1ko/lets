@@ -1,9 +1,10 @@
 $(document).on('ready page:load', function() {
 	
 	$('table tr').click(function() {
+		//$('#myModal').modal('show');
 		var $cur_td = $(this)[0];
 		//var $cur_tr = $(this).parent()[0];
-		alert($cur_td.id);
+		//alert($cur_td.id);
 
 		$.ajax({
 			async:    true ,
@@ -12,12 +13,15 @@ $(document).on('ready page:load', function() {
 			data: {id : $cur_td.id},
 			dataType : 'json',
 			success : function(data, dataType) {
-				alert("success");
-				$("#result").val(data.message);
-				alert(data.message);  
+				//alert("success");
+				
+				$(".modal-body").find("#result").html('<span>'+ data.message + '</span>');
+				//alert(data.message);  
+				$('#myModal').modal('show');
 				          
 			}
 		});
+		
 	});
 	
         
